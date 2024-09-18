@@ -13,13 +13,14 @@ public class Medico {
     private UUID id;
 
     private String nome ;
+
+    private Long cpf;
     
     private String especialidade; 
 
     private double salário;
 
     private byte[] foto;
-}
 
 public void setId(Object object) {
     // TODO Auto-generated method stub

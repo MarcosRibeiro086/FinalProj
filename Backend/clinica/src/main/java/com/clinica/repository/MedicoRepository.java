@@ -12,5 +12,5 @@ import com.clinica.model.Medico;
 public interface MedicoRepository extends JpaRepository<Medico,UUID> {
     
     //Interface que extende outra interface genérica do jpa, recebe dois parâmetros, o model e o tipo do Id desse objeto
-
+    Optional<Medico> findBycpf(Long cpf);
 }

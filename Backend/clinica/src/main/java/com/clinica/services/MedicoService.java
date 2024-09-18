@@ -65,6 +65,38 @@ public class MedicoService {
         //retornar medicodto atualizado
         return medicoDto;
     }
+    
+    public void deletar(UUID id){
+        Optional <Medico> medico=medicoRepository.findById(if);
+        if(medico.isEmpty()){
+            throw new ResourceNotFoundException("Não foi possívek deletar o médico com o id: "+ id ", médico não encontrado")
+        }
+    }
+
+    /**
+     * Método para atualizar produto 
+     * @param id parametro usado para buscar o médio
+     * @return
+     */
+    public MedicoDTO atualizar(UUID id, MedicoDTO medicoDto){
+        
+        //passar o id para o medicoDto
+        medicoDto.setId(id)
+
+        //cria o objeto de mapeamento
+        ModelMapper mapper = new ModelMapper();
+
+        //converter o medicoDTO em medico para ser salvo no banco
+        Medico medico=mapper.map(MedicoDTO,Medico.class);
+
+        //Atualizar o medico no banco de dados
+        medicoRepository.save(medico);
+        
+        //retorna o medicoDto atualizado
+        return medicoDto
+    }
+
+    public
 
 
 

@@ -22,6 +22,8 @@ public class Medico {
     private UUID id;
 
     private String nome ;
+
+    private Long cpf;
     
     private String especialidade; 
 

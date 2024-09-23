@@ -1,13 +1,15 @@
-package com.clinica.model.DTO;
+package com.clinica.model.medico;
 
 import java.util.UUID;
 import lombok.Data;
 
+
 //classe para tranferir dados entre o service e o controller
+@Data
 public class MedicoDTO {
 
-@Data
-public class Medico {
+
+
 
 
     private UUID id;
@@ -22,8 +24,4 @@ public class Medico {
 
     private byte[] foto;
 
-public void setId(Object object) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'setId'");
-}
 }

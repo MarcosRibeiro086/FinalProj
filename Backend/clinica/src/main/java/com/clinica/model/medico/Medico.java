@@ -1,8 +1,8 @@
-package com.clinica.model;
+package com.clinica.model.medico;
 
 import java.util.UUID;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +23,7 @@ public class Medico {
 
     private String nome ;
 
+    @Column(unique = true)
     private Long cpf;
     
     private String especialidade; 

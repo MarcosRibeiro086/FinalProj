@@ -1,11 +1,12 @@
 package com.clinica.repository;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.clinica.model.Medico;
+import com.clinica.model.medico.Medico;
 
 //informa ao spring que essa é a interface que eu usarei parei para enviar dados ao banco
 @Repository

@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.clinica.handler.exception.ResourceNotFoundException;
-import com.clinica.model.Medico;
-import com.clinica.model.DTO.MedicoDTO;
+import com.clinica.model.medico.Medico;
+import com.clinica.model.medico.MedicoDTO;
 import com.clinica.repository.MedicoRepository;
 
 //Indica ao Spring que é uma classe de serviço
@@ -67,10 +67,11 @@ public class MedicoService {
     }
     
     public void deletar(UUID id){
-        Optional <Medico> medico=medicoRepository.findById(if);
+        Optional <Medico> medico=medicoRepository.findById(id);
         if(medico.isEmpty()){
-            throw new ResourceNotFoundException("Não foi possívek deletar o médico com o id: "+ id ", médico não encontrado")
+            throw new ResourceNotFoundException("Não foi possívek deletar o médico com o id: "+ id +", médico não encontrado");
         }
+        medicoRepository.deleteById(id);
     }
 
     /**
@@ -81,22 +82,22 @@ public class MedicoService {
     public MedicoDTO atualizar(UUID id, MedicoDTO medicoDto){
         
         //passar o id para o medicoDto
-        medicoDto.setId(id)
+        medicoDto.setId(id);
 
         //cria o objeto de mapeamento
         ModelMapper mapper = new ModelMapper();
 
         //converter o medicoDTO em medico para ser salvo no banco
-        Medico medico=mapper.map(MedicoDTO,Medico.class);
+        Medico medico=mapper.map(medicoDto,Medico.class);
 
         //Atualizar o medico no banco de dados
         medicoRepository.save(medico);
         
         //retorna o medicoDto atualizado
-        return medicoDto
+        return medicoDto;
     }
 
-    public
+    
 
 
 
